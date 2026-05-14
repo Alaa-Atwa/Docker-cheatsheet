@@ -37,7 +37,7 @@ docker container create -it --name alpine-machine alpine
 # start a container 
 docker start alpine-machine 
 
-# create + start the container 
+# docker run == create + start the container 
 docker run -it --name alpine-machine alpine 
 # -it == interactive shell 
 
@@ -68,10 +68,10 @@ docker stats alpine-machine
 
 # update a container 
 # limiting the cpu and memory usage.
-docker container update --cpu 2 --memory 512M 
+docker container update --cpus 2 --memory 512M 
 
 # update the restart policy 
-docker container update --restart always 
+docker container update --restart always nginx
 
 # interact with a running container (you can use sh instead)
 docker exec -it alpine-machine /bin/bash 
@@ -83,7 +83,7 @@ docker restart alpine-machine
 docker pause alpine-machine 
 docker unpause alpine-machine 
 
-# block a container 
+# wait for a container to stop
 docker cotainer wait alpine-machine 
 
 # killing a container (for unresponsive containers)
@@ -106,7 +106,7 @@ docker container top alpine-machine
 docker rm -v nginx 
 
 # remove all stopped containers 
-docker rm $(docker ps -aq)
+docker container prune 
 
 # remove all containers including running 
 docker rm -f $(docker ps -aq)
@@ -228,7 +228,7 @@ docker compose config --volumes
 # down with removing volume 
 docker compose down  -v 
 
-# showing lgos 
+# show lgos 
 docker compose logs 
 
 # show running services 
