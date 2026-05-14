@@ -1,9 +1,9 @@
 ## Docker cheatsheet 
 
 ### Login to a registery
-```bash 
-docker login 
+```bash
 # you need to create a registery account ex. dockerhub
+docker login 
 docker logout
 
 ```
